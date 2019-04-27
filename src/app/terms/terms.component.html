@@ -1,0 +1,21 @@
+<h2>Health Care Terms</h2>
+<ul class="terms">
+  <li *ngFor="let term of terms" 
+  [class.selected]="term === selectedTerm"
+  (click)="onSelect(term)">
+    <span class="badge">{{term.id}}</span> {{term.name}}
+  </li>
+</ul>
+<div *ngIf="selectedTerm">
+  <h2>{{selectedTerm.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedTerm.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedTerm.name" placeholder="name"/>
+    </label>
+    <label>description:
+      <input [(ngModel)]="selectedTerm.definition" placeholder="definition"/>
+    </label>
+  </div>
+</div>
+<!-- <div><span>name: </span>{{term.name}}</div> -->
